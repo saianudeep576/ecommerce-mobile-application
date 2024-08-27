@@ -5,14 +5,14 @@ const app = express();
 app.use(bodyparser.json());
 app.use(cors());
 
-app.post("/checkUser", function (req, res) {
-  if (req.query.name === "user" && req.body.name === "user") {
-    res.json({ newUser: false, message: "Success old user" });
-  } else if (req.query.name === "" || req.body.name === "") {
-    res.json({ error: true, newUser: false, message: "Required is empty" });
+app.post("/checkUserAccess", function (req, res) {
+  if (req.body.userName === "user") {
+    res.json({ newUser: false });
   } else {
-    res.json({ newUser: true, message: "New user" });
+    res.json({ newUser: true });
   }
 });
 
-app.listen(3000);
+app.listen(3000, () => {
+  console.log('Backend is up!!')
+});
