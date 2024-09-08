@@ -1,39 +1,30 @@
-<form>
+<form [formGroup]="newUserForm" class="layout">
+  <h2>New user registration form</h2>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input
-      type="email"
-      class="form-control"
-      id="exampleFormControlInput1"
-      placeholder="name@example.com"
-    />
+    <label for="exampleFormControlInput1">First Name</label>
+    <input type="text" class="form-control" formControlName="firstName" />
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+    <label>Last Name</label>
+    <input type="text" class="form-control" formControlName="lastName" />
+  </div>
+  <div class="form-group">
+    <label>Gender</label>
+    <select class="form-control" formControlName="genderSelection">
+      <option [value]=""></option>
+      <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
     </select>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect2">Example multiple select</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
+    <label>Age</label>
+    <input type="number" class="form-control" formControlName="age" min="18" max="100" />
   </div>
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea
-      class="form-control"
-      id="exampleFormControlTextarea1"
-      rows="3"
-    ></textarea>
+    <label>Email</label>
+    <input type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+      formControlName="email" />
+  </div>
+  <div class="submit">
+    <button class="btn btn-primary" [disabled]="newUserForm.invalid">Submit</button>
   </div>
 </form>
