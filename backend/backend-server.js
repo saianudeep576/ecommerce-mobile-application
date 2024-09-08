@@ -6,7 +6,7 @@ app.use(bodyparser.json());
 app.use(cors());
 
 app.post("/checkUserAccess", function (req, res) {
-  if (req.body.userName === "user") {
+  if (req.body.email.includes("@swetha.com")) {
     res.json({ newUser: false });
   } else {
     res.json({ newUser: true });
