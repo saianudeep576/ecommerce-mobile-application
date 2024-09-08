@@ -3,7 +3,5 @@ export interface UserAccessResponse {
 }
 
 export interface UserDetailsForm {
-  userName: string;
   email: string;
-  contactNumber: string;
 }

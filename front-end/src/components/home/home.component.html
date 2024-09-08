@@ -34,11 +34,14 @@
                 class="btn btn-primary"
                 [disabled]="!!$.userDetailForm"
               >
-                {{ $.userDetailForm ? $.userDetailForm.userName : "Login" }}
+                {{ $.userDetailForm ? $.userDetailForm.email : "Login" }}
               </button></span
             >
-            <span *ngIf="!!$.userDetailForm" style="padding-left: 8px; padding-top: 8px">
-              <a style="color: white">Sign out</a></span
+            <span
+              *ngIf="!!$.userDetailForm"
+              style="padding-left: 8px; padding-top: 8px"
+            >
+              <a style="color: white" (click)="signOut()">Sign out</a></span
             >
           </span>
         </form>

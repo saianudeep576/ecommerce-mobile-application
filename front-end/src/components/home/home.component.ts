@@ -16,4 +16,8 @@ export class HomeComponent {
   userLogin() {
     this.router.navigate(['/']);
   }
+
+  signOut() {
+    this.ecomStateService.userDetailForm$.next(<any>null);
+  }
 }

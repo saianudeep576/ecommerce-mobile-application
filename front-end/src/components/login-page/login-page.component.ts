@@ -4,7 +4,6 @@ import {
   FormGroup,
   Validators,
   FormControl,
-  EmailValidator,
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EcomApiService } from 'src/services/ecom-api.service';
@@ -25,40 +24,30 @@ export class LoginPageComponent {
     public router: Router
   ) {
     this.userForm = this.fb.group({
-      userName: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required]),
-      contactNumber: new FormControl('', [Validators.required]),
     });
-  }
-
-  get userName() {
-    return this.userForm.get('userName')?.value;
   }
 
   get email() {
     return this.userForm.get('email')?.value;
   }
 
-  get contactNumber() {
-    return this.userForm.get('contactNumber')?.value;
-  }
-
   checkUserAccess() {
-    this.ecomApiService
-      .checkUserAccess(this.userName, this.email, this.contactNumber)
-      .subscribe({
-        next: (data) => {
-          this.ecomStateService.userStatus$.next(data.newUser);
-          this.ecomStateService.userDetailForm$.next({
-            userName: this.userName,
-            email: this.email,
-            contactNumber: this.contactNumber,
-          });
+    this.ecomApiService.checkUserAccess(this.email).subscribe({
+      next: (data) => {
+        this.ecomStateService.userStatus$.next(data.newUser);
+        this.ecomStateService.userDetailForm$.next({
+          email: this.email,
+        });
+        if (data.newUser) {
+          this.router.navigate(['/new-user']);
+        } else {
           this.router.navigate(['/']);
-        },
-        error: () => {
-          alert('backend is down');
-        },
-      });
+        }
+      },
+      error: () => {
+        alert('backend is down');
+      },
+    });
   }
 }

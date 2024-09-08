@@ -10,11 +10,9 @@ export class EcomApiService {
   backendUrl = 'http://localhost:3000';
   constructor(public http: HttpClient) {}
 
-  checkUserAccess(userName: string, email: string, contactNumber: string) {
+  checkUserAccess(email: string) {
     let body = {
-      userName: userName,
       email: email,
-      contactNumber: contactNumber,
     };
     return this.http.post<UserAccessResponse>(
       this.backendUrl + ApiEndPoints.apiEndPoints.checkUserAccess,

@@ -6,9 +6,10 @@ import { EcomApiService } from 'src/services/ecom-api.service';
 import { EcomStateService } from 'src/services/ecom-state.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NewUserFormComponent } from 'src/components/new-user-form/new-user-form.component';
 
 @NgModule({
-  declarations: [LoginPageComponent, HomeComponent],
+  declarations: [LoginPageComponent, HomeComponent, NewUserFormComponent],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   providers: [EcomApiService, EcomStateService],
 })
