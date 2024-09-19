@@ -41,8 +41,10 @@ export class LoginPageComponent {
         });
         if (data.newUser) {
           this.router.navigate(['/new-user']);
+          this.ecomStateService.userDetailForm$.next(<any>null);
         } else {
           this.router.navigate(['/']);
+          this.ecomStateService.showSignoutText$.next(true);
         }
       },
       error: () => {

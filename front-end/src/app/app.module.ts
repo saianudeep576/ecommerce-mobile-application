@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { EcomHomePageModule } from 'src/modules/ecom-module/ecom-home-page-module.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,7 @@ import { EcomHomePageModule } from 'src/modules/ecom-module/ecom-home-page-modul
     StoreModule.forRoot({}, {}),
     CommonModule,
     EcomHomePageModule,
+    BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent],
 })

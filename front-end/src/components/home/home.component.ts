@@ -18,6 +18,9 @@ export class HomeComponent {
   }
 
   signOut() {
-    this.ecomStateService.userDetailForm$.next(<any>null);
+    this.ecomStateService.userDetailForm$.next(<any>{});
+    this.ecomStateService.newUserRegistrationForm$.next(<any>{});
+    this.ecomStateService.showSignoutText$.next(false);
+    this.ecomStateService.userStatus$.next(false);
   }
 }

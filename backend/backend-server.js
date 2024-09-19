@@ -5,13 +5,17 @@ const app = express();
 app.use(bodyparser.json());
 app.use(cors());
 
-app.post("/checkUserAccess", function (req, res) {
-  if (req.body.email.includes("@swetha.com")) {
+app.get("/checkUserAccess", function (req, res) {
+  if (req.query.email.includes("@swetha.com")) {
     res.json({ newUser: false });
   } else {
     res.json({ newUser: true });
   }
 });
+
+app.post('/newUser', (_req, res) => {
+  res.json({ message: "New user creation success" })
+})
 
 app.listen(3000, () => {
   console.log('Backend is up!!')

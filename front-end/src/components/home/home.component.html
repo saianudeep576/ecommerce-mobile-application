@@ -1,6 +1,8 @@
 <ng-container
   *ngIf="{
-    userDetailForm: ecomStateService.userDetailForm$ | async
+    userDetailForm: ecomStateService.userDetailForm$ | async,
+    newUserRegistrationForm: ecomStateService.newUserRegistrationForm$ | async,
+    showSignoutText: ecomStateService.showSignoutText$ | async
   } as $"
 >
   <nav class="navbar navbar-expand-sm navbar-dark bg-warning">
@@ -34,14 +36,20 @@
                 class="btn btn-primary"
                 [disabled]="!!$.userDetailForm"
               >
-                {{ $.userDetailForm ? $.userDetailForm.email : "Login" }}
+                Login
               </button></span
             >
             <span
-              *ngIf="!!$.userDetailForm"
+              *ngIf="!!$.showSignoutText"
               style="padding-left: 8px; padding-top: 8px"
             >
-              <a style="color: white" (click)="signOut()">Sign out</a></span
+              <button
+                class="btn btn-primary"
+                style="color: white"
+                (click)="signOut()"
+              >
+                Sign out
+              </button></span
             >
           </span>
         </form>
