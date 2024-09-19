@@ -22,12 +22,17 @@
             <a class="nav-link" href="javascript:void(0)">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0)">About Us</a>
+            <a
+              class="nav-link"
+              href="javascript:void(0)"
+              (click)="naviagteToAboutUs()"
+              >About Us</a
+            >
           </li>
         </ul>
-        <form class="d-flex">
-          <span class="d-flex">
-            <span>
+        <form style="float: right">
+          <span>
+            <span *ngIf="!$.userDetailForm || $.newUserRegistrationForm">
               <button
                 role="button"
                 data-bs-toggle="modal"
@@ -57,4 +62,13 @@
     </div>
     <app-login></app-login>
   </nav>
+  <div class="cards">
+    <span>
+      <span class="row">
+        <span *ngFor="let image of imageUrlObject" class="card">
+          <img src="{{ image.url }}" alt="{{ image.alt }}" />
+        </span>
+      </span>
+    </span>
+  </div>
 </ng-container>

@@ -10,8 +10,8 @@ import {
 })
 export class EcomStateService {
   userStatus$ = new BehaviorSubject<boolean>(false);
-  userDetailForm$ = new BehaviorSubject<UserDetailsForm>(<any>null);
-  newUserRegistrationForm$ = new BehaviorSubject<NewUserForm>(<any>{});
+  userDetailForm$ = new BehaviorSubject<UserDetailsForm | null>(null);
+  newUserRegistrationForm$ = new BehaviorSubject<NewUserForm | null>(null);
   showSignoutText$ = new BehaviorSubject<boolean>(false);
 
   constructor() {}
