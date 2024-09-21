@@ -13,6 +13,8 @@ import { NewUserFormComponent } from 'src/components/new-user-form/new-user-form
 import { EcomStateService } from 'src/services/ecom-state.service';
 import { EcomApiService } from 'src/services/ecom-api.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from 'src/components/header/header.component';
+import { ChoosePhoneComponent } from 'src/components/choose-phone/choose-phone.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewUserFormComponent,
     AboutUsComponent,
     BranchesComponent,
+    HeaderComponent,
+    ChoosePhoneComponent,
   ],
   imports: [
     BrowserModule,

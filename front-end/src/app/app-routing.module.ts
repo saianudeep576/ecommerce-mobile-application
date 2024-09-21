@@ -5,11 +5,17 @@ import { NewUserFormComponent } from 'src/components/new-user-form/new-user-form
 import { AboutUsComponent } from 'src/components/about-us/about-us.component';
 import { BranchesComponent } from 'src/components/branches/branches.component';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from 'src/components/header/header.component';
+import { ChoosePhoneComponent } from 'src/components/choose-phone/choose-phone.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
+    component: ChoosePhoneComponent,
+  },
+  {
+    path: 'choose-phone',
+    component: ChoosePhoneComponent,
   },
   {
     path: 'login-page',

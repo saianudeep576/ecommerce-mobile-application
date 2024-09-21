@@ -1,0 +1,26 @@
+<div class="choose-phone-layout">
+  <div class="row">
+    <div class="cardpadding">
+      <h1>MOBILES</h1>
+      <!-- <input type="checkbox" (change)="apple($event)" value="'Apple'" />
+          <input type="checkbox" (change)="realme($event)" value="'Realme'" /> -->
+      <div class="column" *ngFor="let image of imageUrlInfo">
+        <div class="card">
+          <img
+            src="{{ image.url }}"
+            alt="{{ image.alt }}"
+            height="200px"
+            width="250px"
+          />
+          <div style="padding: 30px">
+            <h2>{{ image.title }}</h2>
+            <p>Storage : {{ image.storage }}</p>
+            <p>RAM : {{ image.ram }}</p>
+            <p>Color : {{ image.color }}</p>
+            <button class="btn btn-primary" style="width: 100%">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

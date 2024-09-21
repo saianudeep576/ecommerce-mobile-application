@@ -1,29 +1,32 @@
-<div class="about-section">
-  <h1>Swetha Mobiles</h1>
-  <p>
-    Swetha mobiles is a leading mobile seller in the market.We have been in the
-    market from 40 years.We have branches all over India in all the major
-    metropolitan cities like Hyderabd, Mumbai, Delhi,Kolkata, Bangalore.We are
-    spreading our wings and establishing new branches in smaller cities in
-    India.
-  </p>
-</div>
-
-<h2 style="text-align: center">Our Team</h2>
-<div class="row cardpadding">
-  <div class="column" *ngFor="let image of imageUrlInfo">
-    <div class="card">
-      <img
-        src="{{ image.url }}"
-        alt="{{ image.alt }}"
-        height="200px"
-        width="250px"
-      />
-      <div style="padding: 40px">
-        <h2>{{ image.title }}</h2>
-        <p class="title">{{ image.designation }}</p>
-        <p>{{ image.education }}</p>
-        <p>{{ image.email }}</p>
+<div class="about-us-layout">
+  <div class="about-section">
+    <h1>Swetha Mobiles</h1>
+    <p>
+      Swetha mobiles is a leading mobile seller in the market.We have been in
+      the market from 40 years.We have branches all over India in all the major
+      metropolitan cities like Hyderabd, Mumbai, Delhi,Kolkata, Bangalore.We are
+      spreading our wings and establishing new branches in smaller cities in
+      India.
+    </p>
+  </div>
+  <h2 style="text-align: center">Our Team</h2>
+  <div class="row">
+    <div class="cardpadding">
+      <div class="column" *ngFor="let image of imageUrlInfo">
+        <div class="card">
+          <img
+            src="{{ image.url }}"
+            alt="{{ image.alt }}"
+            height="200px"
+            width="250px"
+          />
+          <div style="padding: 40px">
+            <h2>{{ image.title }}</h2>
+            <p class="title">{{ image.designation }}</p>
+            <p>{{ image.education }}</p>
+            <p>{{ image.email }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
