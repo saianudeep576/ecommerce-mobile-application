@@ -1,1 +1,90 @@
+<ng-container
+  *ngIf="{
+    userDetailForm: ecomStateService.userDetailForm$ | async,
+    newUserRegistrationForm: ecomStateService.newUserRegistrationForm$ | async,
+    showSignoutText: ecomStateService.showSignoutText$ | async
+  } as $"
+>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-warning">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="" href="javascript:void(0)">Home</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mynavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" routerLink="/about-us"
+              >About Us</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" routerLink="/branches"
+              >Branches</a
+            >
+          </li>
+        </ul>
+        <form style="float: right">
+          <span>
+            <span *ngIf="!$.userDetailForm || $.newUserRegistrationForm">
+              <button
+                role="button"
+                data-bs-toggle="modal"
+                data-bs-target="#userRegistrationModal"
+                (click)="userLogin()"
+                class="btn btn-primary"
+                [disabled]="!!$.userDetailForm"
+              >
+                Login
+              </button></span
+            >
+            <span
+              *ngIf="!!$.showSignoutText"
+              style="padding-left: 8px; padding-top: 8px"
+            >
+              <button
+                class="btn btn-primary"
+                style="color: white"
+                (click)="signOut()"
+              >
+                Sign out
+              </button></span
+            >
+          </span>
+        </form>
+      </div>
+    </div>
+    <app-login></app-login>
+  </nav>
+
+  <marquee>Swetha Mobiles</marquee>
+  <h1 style="padding-left: 100px">MOBILES</h1>
+  <div class="row cardpadding">
+    <div class="column" *ngFor="let image of imageUrlInfo">
+      <div class="card">
+        <img
+          src="{{ image.url }}"
+          alt="{{ image.alt }}"
+          height="200px"
+          width="250px"
+        />
+        <div style="padding: 30px">
+          <h2>{{ image.title }}</h2>
+          <p>Storage : {{ image.storage }}</p>
+          <p>RAM : {{ image.ram }}</p>
+          <p>Color : {{ image.color }}</p>
+          <button class="btn btn-primary" style="width: 100%">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
 <router-outlet></router-outlet>

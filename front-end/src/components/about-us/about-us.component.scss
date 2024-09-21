@@ -1,6 +1,6 @@
 .column {
   float: left;
-  width: 47%;
+  width: fit-content;
   padding: 0 8px;
 }
 
@@ -14,5 +14,5 @@
 }
 
 .cardpadding {
-  padding-left: 40px;
+  padding-left: 100px;
 }

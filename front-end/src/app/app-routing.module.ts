@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from 'src/components/login-page/login-page.component';
-import { HomeComponent } from 'src/components/home/home.component';
 import { NewUserFormComponent } from 'src/components/new-user-form/new-user-form.component';
 import { AboutUsComponent } from 'src/components/about-us/about-us.component';
+import { BranchesComponent } from 'src/components/branches/branches.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: AppComponent,
   },
   {
     path: 'login-page',
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'about-us',
     component: AboutUsComponent,
+  },
+  {
+    path: 'branches',
+    component: BranchesComponent,
   },
 ];
 
