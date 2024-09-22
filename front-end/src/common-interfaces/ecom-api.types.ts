@@ -17,5 +17,15 @@ export interface NewUserForm {
   age: string;
   email: string;
   phone: string;
-  dateOfBirth: string
+  dateOfBirth: string;
+}
+
+export interface GetPhoneInfoResponse {
+  title: string;
+  url: string;
+  alt: string;
+  storage: number;
+  ram: number;
+  color: string;
+  brand: string;
 }

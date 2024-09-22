@@ -1,4 +1,5 @@
 export const apiEndPoints = {
   checkUserAccess: '/checkUserAccess',
-  newUser: '/newUser',
+  createNewUser: '/createNewUser',
+  getPhoneInfo: '/getPhoneInfo'
 };
