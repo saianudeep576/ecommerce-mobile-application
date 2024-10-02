@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import {
   NewUserForm,
   UserDetailsForm,
@@ -11,7 +11,7 @@ import {
 export class EcomStateService {
   userStatus$ = new BehaviorSubject<boolean>(false);
   userDetailForm$ = new BehaviorSubject<UserDetailsForm | null>(null);
-  newUserRegistrationForm$ = new BehaviorSubject<NewUserForm | null>(null);
+  newUserRegistrationForm$: Observable<NewUserForm>;
   showSignoutText$ = new BehaviorSubject<boolean>(false);
 
   constructor() {}

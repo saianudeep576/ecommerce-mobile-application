@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,8 @@ import { EcomApiService } from 'src/services/ecom-api.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from 'src/components/header/header.component';
 import { ChoosePhoneComponent } from 'src/components/choose-phone/choose-phone.component';
+import { reducerFunction } from 'src/store/app.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,13 @@ import { ChoosePhoneComponent } from 'src/components/choose-phone/choose-phone.c
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({selector: reducerFunction}),
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   bootstrap: [AppComponent],
   providers: [EcomStateService, EcomApiService],
