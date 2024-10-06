@@ -34,7 +34,10 @@ export class NewUserFormComponent {
       lastName: new FormControl('', Validators.required),
       genderSelection: new FormControl('', Validators.required),
       age: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
+      email: new FormControl(
+        this.ecomStateService.newUserMail$.value,
+        Validators.required
+      ),
       phone: new FormControl('', Validators.required),
       dateOfBirth: new FormControl('', Validators.required),
     });

@@ -31,7 +31,18 @@
               <p>Storage : {{ image.storage }}</p>
               <p>RAM : {{ image.ram }}</p>
               <p>Color : {{ image.color }}</p>
-              <button class="btn btn-primary" style="width: 100%">
+              <button
+                [routerLink]="''"
+                [queryParams]="{
+                  title: image.title,
+                  ram: image.ram,
+                  storage: image.storage,
+                  color: image.color
+                }"
+                queryParamsHandling="merge"
+                class="btn btn-primary"
+                style="width: 100%"
+              >
                 Buy Now
               </button>
             </div>

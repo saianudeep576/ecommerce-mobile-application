@@ -40,6 +40,7 @@ export class LoginPageComponent {
           email: this.email,
         });
         if (data.newUser) {
+          this.ecomStateService.newUserMail$.next(this.email);
           this.router.navigate(['/new-user']);
           this.ecomStateService.userDetailForm$.next(null);
         } else {

@@ -13,6 +13,7 @@ export class EcomStateService {
   userDetailForm$ = new BehaviorSubject<UserDetailsForm | null>(null);
   newUserRegistrationForm$: Observable<NewUserForm>;
   showSignoutText$ = new BehaviorSubject<boolean>(false);
+  newUserMail$ = new BehaviorSubject<string>('');
 
   constructor() {}
 }

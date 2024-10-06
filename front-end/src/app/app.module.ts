@@ -17,6 +17,7 @@ import { HeaderComponent } from 'src/components/header/header.component';
 import { ChoosePhoneComponent } from 'src/components/choose-phone/choose-phone.component';
 import { reducerFunction } from 'src/store/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { NewUserGuard } from 'src/components/guards/new-user.guard';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({selector: reducerFunction}),
+    StoreModule.forRoot({ selector: reducerFunction }),
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -40,6 +41,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   bootstrap: [AppComponent],
-  providers: [EcomStateService, EcomApiService],
+  providers: [EcomStateService, EcomApiService, NewUserGuard],
 })
 export class AppModule {}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { EcomApiService } from 'src/services/ecom-api.service';
 
 @Component({
@@ -45,5 +46,9 @@ export class ChoosePhoneComponent implements OnInit {
         }
       });
     return this.filteredList;
+  }
+
+  alertData() {
+    console.log('data');
   }
 }

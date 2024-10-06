@@ -7,6 +7,7 @@ import { BranchesComponent } from 'src/components/branches/branches.component';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from 'src/components/header/header.component';
 import { ChoosePhoneComponent } from 'src/components/choose-phone/choose-phone.component';
+import { NewUserGuard } from 'src/components/guards/new-user.guard';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
   {
     path: 'new-user',
     component: NewUserFormComponent,
+    canActivate: [NewUserGuard],
   },
   {
     path: 'about-us',
