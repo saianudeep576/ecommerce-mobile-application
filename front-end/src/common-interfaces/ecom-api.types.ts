@@ -29,3 +29,10 @@ export interface GetPhoneInfoResponse {
   color: string;
   brand: string;
 }
+
+export interface SelectedPhoneInfo {
+  color: string;
+  ram: string;
+  storage: string;
+  title: string;
+}

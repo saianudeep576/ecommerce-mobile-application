@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { NewUserForm } from 'src/common-interfaces/ecom-api.types';
+import { NewUserForm, SelectedPhoneInfo } from 'src/common-interfaces/ecom-api.types';
 
 export const newUserInfoAction = createAction(
   '[Load New user Information]',
@@ -8,4 +8,9 @@ export const newUserInfoAction = createAction(
 
 export const clearNewUserFormAction = createAction(
   '[Load Clear New user Information]'
+);
+
+export const selectedPhoneInformationAction = createAction(
+  '[Store Selected Phone Information]',
+  props<{ selectedPhoneInformation: SelectedPhoneInfo }>()
 );

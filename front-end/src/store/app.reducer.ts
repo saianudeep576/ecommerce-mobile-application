@@ -1,8 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
-import { clearNewUserFormAction, newUserInfoAction } from './app.action';
+import {
+  clearNewUserFormAction,
+  newUserInfoAction,
+  selectedPhoneInformationAction,
+} from './app.action';
 
 export const initialState = {
   userDetails: {},
+  selectedPhoneInformation: {},
 };
 
 export const reducerFunction = createReducer(
@@ -17,6 +22,12 @@ export const reducerFunction = createReducer(
     return {
       ...state,
       userDetails: {},
+    };
+  }),
+  on(selectedPhoneInformationAction, (state, action) => {
+    return {
+      ...state,
+      selectedPhoneInformation: action.selectedPhoneInformation,
     };
   })
 );

@@ -18,6 +18,7 @@ import { ChoosePhoneComponent } from 'src/components/choose-phone/choose-phone.c
 import { reducerFunction } from 'src/store/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NewUserGuard } from 'src/components/guards/new-user.guard';
+import { BuildYourPlanComponent } from 'src/components/build-your-plan/build-your-plan/build-your-plan.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NewUserGuard } from 'src/components/guards/new-user.guard';
     BranchesComponent,
     HeaderComponent,
     ChoosePhoneComponent,
+    BuildYourPlanComponent,
   ],
   imports: [
     BrowserModule,

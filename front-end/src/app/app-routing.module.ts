@@ -4,10 +4,9 @@ import { LoginPageComponent } from 'src/components/login-page/login-page.compone
 import { NewUserFormComponent } from 'src/components/new-user-form/new-user-form.component';
 import { AboutUsComponent } from 'src/components/about-us/about-us.component';
 import { BranchesComponent } from 'src/components/branches/branches.component';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from 'src/components/header/header.component';
 import { ChoosePhoneComponent } from 'src/components/choose-phone/choose-phone.component';
 import { NewUserGuard } from 'src/components/guards/new-user.guard';
+import { BuildYourPlanComponent } from 'src/components/build-your-plan/build-your-plan/build-your-plan.component';
 
 const routes: Routes = [
   {
@@ -21,6 +20,10 @@ const routes: Routes = [
   {
     path: 'login-page',
     component: LoginPageComponent,
+  },
+  {
+    path: 'build-your-plan',
+    component: BuildYourPlanComponent,
   },
   {
     path: 'new-user',
