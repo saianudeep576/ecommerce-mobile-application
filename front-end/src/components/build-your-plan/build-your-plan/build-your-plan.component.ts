@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { EcomStateService } from 'src/services/ecom-state.service';
 import { selectedPhoneInformationAction } from 'src/store/app.action';
 
 @Component({
@@ -10,15 +11,24 @@ import { selectedPhoneInformationAction } from 'src/store/app.action';
 })
 export class BuildYourPlanComponent {
   params: any;
-  constructor(public store: Store<{ selector: any }>, route: ActivatedRoute) {
+  selectedDeviceInfo: any;
+  constructor(
+    public store: Store<{ selector: any }>,
+    route: ActivatedRoute,
+    public ecomStateService: EcomStateService
+  ) {
     route.queryParams.subscribe((val) => {
       this.params = {
         color: val['color'],
         ram: val['ram'],
         storage: val['storage'],
         title: val['title'],
+        price: val['price'],
       };
     });
-    this.store.dispatch(selectedPhoneInformationAction(this.params));
+
+    this.store.dispatch(
+      selectedPhoneInformationAction({ selectedPhoneInformation: this.params })
+    );
   }
 }
