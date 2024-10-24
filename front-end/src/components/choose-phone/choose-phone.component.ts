@@ -47,8 +47,4 @@ export class ChoosePhoneComponent implements OnInit {
       });
     return this.filteredList;
   }
-
-  alertData() {
-    console.log('data');
-  }
 }

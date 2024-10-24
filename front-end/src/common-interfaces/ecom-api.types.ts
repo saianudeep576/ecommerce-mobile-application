@@ -35,4 +35,5 @@ export interface SelectedPhoneInfo {
   ram: string;
   storage: string;
   title: string;
+  price: string;
 }
