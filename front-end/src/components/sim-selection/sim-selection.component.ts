@@ -16,19 +16,19 @@ export class SimSelectionComponent {
   simSelectionList = [
     {
       simName: 'Airtel',
-      url: 'https://logos-world.net/wp-content/uploads/2020/11/Airtel-Emblem-700x394.png',
+      url: 'assets/airtel.png',
     },
     {
       simName: 'Jio',
-      url: 'https://static.vecteezy.com/system/resources/previews/017/221/777/original/jio-transparent-free-png.png',
+      url: 'assets/jio.webp',
     },
     {
       simName: 'BSNL',
-      url: 'https://images.fonearena.com/blog/wp-content/uploads/2021/10/BSNL-logo-1024x693.jpg',
+      url: 'assets/bsnl.jpg',
     },
     {
       simName: 'VI',
-      url: 'https://resize.indiatvnews.com/en/resize/newbucket/360_-/2024/02/vodafone-idea-1708608271.jpg',
+      url: 'assets/vi.jpg',
     },
   ];
   constructor(public fb: FormBuilder) {

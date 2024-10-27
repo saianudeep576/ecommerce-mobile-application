@@ -19,6 +19,8 @@ import { reducerFunction } from 'src/store/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NewUserGuard } from 'src/components/guards/new-user.guard';
 import { BuildYourPlanComponent } from 'src/components/build-your-plan/build-your-plan/build-your-plan.component';
+import { SimSelectionComponent } from 'src/components/sim-selection/sim-selection.component';
+import { MaterialModulesList } from './modules.import';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { BuildYourPlanComponent } from 'src/components/build-your-plan/build-you
     HeaderComponent,
     ChoosePhoneComponent,
     BuildYourPlanComponent,
+    SimSelectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { BuildYourPlanComponent } from 'src/components/build-your-plan/build-you
     ReactiveFormsModule,
     HttpClientModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    MaterialModulesList,
   ],
   bootstrap: [AppComponent],
   providers: [EcomStateService, EcomApiService, NewUserGuard],
