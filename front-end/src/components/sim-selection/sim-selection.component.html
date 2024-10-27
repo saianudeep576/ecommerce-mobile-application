@@ -1,0 +1,14 @@
+<form [formGroup]="simSelectionForm">
+  <mat-radio-group
+    aria-label="Select an option"
+    formControlName="simSelectionRadio"
+    (change)="onSimSelectionChange()"
+  >
+    <mat-radio-button
+      *ngFor="let item of simSelectionList"
+      [value]="item.simName"
+    >
+      <img src="{{ item.url }}" width="100px" />
+    </mat-radio-button>
+  </mat-radio-group>
+</form>
