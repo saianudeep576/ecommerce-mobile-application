@@ -27,7 +27,7 @@ export class NewUserFormComponent {
     public ecomService: EcomApiService,
     public ecomStateService: EcomStateService,
     public router: Router,
-    public store: Store<{ selector: any }>
+    public store: Store<{ userDetailsSelector: NewUserForm }>
   ) {
     this.newUserForm = this.fb.group({
       firstName: new FormControl('', Validators.required),
@@ -55,8 +55,9 @@ export class NewUserFormComponent {
     };
     this.ecomService.createNewUser(body).subscribe({
       next: (_value) => {
-        this.ecomStateService.newUserRegistrationForm$ =
-          this.store.select('selector');
+        this.ecomStateService.newUserRegistrationForm$ = this.store.select(
+          'userDetailsSelector'
+        );
         this.router.navigate(['/']);
         this.store.dispatch(
           newUserInfoAction({ userDetails: this.newUserForm.value })

@@ -3,15 +3,23 @@ import {
   clearNewUserFormAction,
   newUserInfoAction,
   selectedPhoneInformationAction,
+  selectedSImInformationAction,
 } from './app.action';
 
-export const initialState = {
+export const userDetailsInitialState = {
   userDetails: {},
+};
+
+export const selectedPhoneInitialState = {
   selectedPhoneInformation: {},
 };
 
-export const reducerFunction = createReducer(
-  initialState,
+export const selectedSimInitialState = {
+  selectedSimInformation: '',
+};
+
+export const userDetailsReducerFunction = createReducer(
+  userDetailsInitialState,
   on(newUserInfoAction, (state, action) => {
     return {
       ...state,
@@ -23,11 +31,25 @@ export const reducerFunction = createReducer(
       ...state,
       userDetails: {},
     };
-  }),
+  })
+);
+
+export const selectedPhoneReducerFunction = createReducer(
+  selectedPhoneInitialState,
   on(selectedPhoneInformationAction, (state, action) => {
     return {
       ...state,
       selectedPhoneInformation: action.selectedPhoneInformation,
+    };
+  })
+);
+
+export const selectedSimReducerFunction = createReducer(
+  selectedSimInitialState,
+  on(selectedSImInformationAction, (state, action) => {
+    return {
+      ...state,
+      selectedSimInformation: action.selectedSimInformation,
     };
   })
 );

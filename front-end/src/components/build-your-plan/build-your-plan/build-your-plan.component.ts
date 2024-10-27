@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { SelectedPhoneInfo } from 'src/common-interfaces/ecom-api.types';
 import { EcomStateService } from 'src/services/ecom-state.service';
 import { selectedPhoneInformationAction } from 'src/store/app.action';
 
@@ -13,7 +14,9 @@ export class BuildYourPlanComponent {
   params: any;
   selectedDeviceInfo: any;
   constructor(
-    public store: Store<{ selector: any }>,
+    public store: Store<{
+      selectedPhoneInformationSelector: SelectedPhoneInfo;
+    }>,
     route: ActivatedRoute,
     public ecomStateService: EcomStateService
   ) {
@@ -29,6 +32,9 @@ export class BuildYourPlanComponent {
 
     this.store.dispatch(
       selectedPhoneInformationAction({ selectedPhoneInformation: this.params })
+    );
+    this.ecomStateService.selectedPhoneInformation$ = this.store.select(
+      'selectedPhoneInformationSelector'
     );
   }
 }
