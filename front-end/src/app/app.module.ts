@@ -15,11 +15,6 @@ import { EcomApiService } from 'src/services/ecom-api.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from 'src/components/header/header.component';
 import { ChoosePhoneComponent } from 'src/components/choose-phone/choose-phone.component';
-import {
-  userDetailsReducerFunction,
-  selectedPhoneReducerFunction,
-  selectedSimReducerFunction,
-} from 'src/store/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NewUserGuard } from 'src/components/guards/new-user.guard';
 import { BuildYourPlanComponent } from 'src/components/build-your-plan/build-your-plan/build-your-plan.component';
@@ -41,11 +36,7 @@ import { MaterialModulesList } from './modules.import';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({
-      userDetailsSelector: userDetailsReducerFunction,
-      selectedPhoneInformationSelector: selectedPhoneReducerFunction,
-      selectedSimInformationSelector: selectedSimReducerFunction,
-    }),
+    StoreModule.forRoot({}),
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,

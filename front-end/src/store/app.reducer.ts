@@ -1,10 +1,17 @@
 import { createReducer, on } from '@ngrx/store';
+import { NewUserForm, SelectedPhoneInfo } from '../common-interfaces/ecom-api.types';
 import {
   clearNewUserFormAction,
   newUserInfoAction,
   selectedPhoneInformationAction,
   selectedSImInformationAction,
 } from './app.action';
+
+export interface AppState {
+  userDetails: NewUserForm,
+  selectedPhoneInformation: SelectedPhoneInfo,
+  selectedSimInformation: string
+}
 
 export const userDetailsInitialState = {
   userDetails: {},
