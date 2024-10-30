@@ -20,6 +20,8 @@ import { NewUserGuard } from 'src/components/guards/new-user.guard';
 import { BuildYourPlanComponent } from 'src/components/build-your-plan/build-your-plan/build-your-plan.component';
 import { SimSelectionComponent } from 'src/components/sim-selection/sim-selection.component';
 import { MaterialModulesList } from './modules.import';
+import { PlanSelectionComponent } from 'src/components/plan-selection/plan-selection.component';
+import { TentiativeService } from 'src/services/tentiative.service';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { MaterialModulesList } from './modules.import';
     ChoosePhoneComponent,
     BuildYourPlanComponent,
     SimSelectionComponent,
+    PlanSelectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,11 @@ import { MaterialModulesList } from './modules.import';
     MaterialModulesList,
   ],
   bootstrap: [AppComponent],
-  providers: [EcomStateService, EcomApiService, NewUserGuard],
+  providers: [
+    EcomStateService,
+    EcomApiService,
+    NewUserGuard,
+    TentiativeService,
+  ],
 })
 export class AppModule {}
