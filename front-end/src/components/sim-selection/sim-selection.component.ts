@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { TentiativeService } from 'src/services/tentiative.service';
 import { selectedSImInformationAction } from 'src/store/app.action';
 
 @Component({
@@ -35,7 +36,8 @@ export class SimSelectionComponent {
   ];
   constructor(
     public fb: FormBuilder,
-    public store: Store<{ selectedSimInformationSelector: '' }>
+    public store: Store<{ selectedSimInformationSelector: '' }>,
+    public tentiativeService: TentiativeService
   ) {
     this.simSelectionForm = this.fb.group({
       simSelectionRadio: new FormControl('', Validators.required),
@@ -47,6 +49,10 @@ export class SimSelectionComponent {
         selectedSimInformation:
           this.simSelectionForm.get('simSelectionRadio')?.value,
       })
+    );
+    //tentiative change
+    this.tentiativeService.tempSelectedSimInfo$.next(
+      this.simSelectionForm.get('simSelectionRadio')?.value
     );
   }
 }

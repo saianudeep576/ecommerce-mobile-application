@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { SelectedPhoneInfo } from 'src/common-interfaces/ecom-api.types';
 import { EcomStateService } from 'src/services/ecom-state.service';
+import { TentiativeService } from 'src/services/tentiative.service';
 import { selectedPhoneInformationAction } from 'src/store/app.action';
 
 @Component({
@@ -18,7 +19,8 @@ export class BuildYourPlanComponent {
       selectedPhoneInformationSelector: SelectedPhoneInfo;
     }>,
     route: ActivatedRoute,
-    public ecomStateService: EcomStateService
+    public ecomStateService: EcomStateService,
+    public tentiativeService: TentiativeService
   ) {
     route.queryParams.subscribe((val) => {
       this.params = {
@@ -36,5 +38,8 @@ export class BuildYourPlanComponent {
     this.ecomStateService.selectedPhoneInformation$ = this.store.select(
       'selectedPhoneInformationSelector'
     );
+    //tentiative change
+    this.tentiativeService.tempSelectedDeviceInfo$.next(this.params);
+    console.log(this.tentiativeService.tempSelectedDeviceInfo$.value);
   }
 }

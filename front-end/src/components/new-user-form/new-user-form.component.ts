@@ -10,6 +10,7 @@ import { Store } from '@ngrx/store';
 import { NewUserForm } from 'src/common-interfaces/ecom-api.types';
 import { EcomApiService } from 'src/services/ecom-api.service';
 import { EcomStateService } from 'src/services/ecom-state.service';
+import { TentiativeService } from 'src/services/tentiative.service';
 import { newUserInfoAction } from 'src/store/app.action';
 
 @Component({
@@ -27,7 +28,8 @@ export class NewUserFormComponent {
     public ecomService: EcomApiService,
     public ecomStateService: EcomStateService,
     public router: Router,
-    public store: Store<{ userDetailsSelector: NewUserForm }>
+    public store: Store<{ userDetailsSelector: NewUserForm }>,
+    public tentitativeService: TentiativeService
   ) {
     this.newUserForm = this.fb.group({
       firstName: new FormControl('', Validators.required),
@@ -63,6 +65,8 @@ export class NewUserFormComponent {
           newUserInfoAction({ userDetails: this.newUserForm.value })
         );
         this.ecomStateService.showSignoutText$.next(true);
+        //tentiative change
+        this.tentitativeService.tempNewUserInfo$.next(this.newUserForm.value);
       },
       error: () => {
         alert('backend is down');
