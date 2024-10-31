@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import * as ApiEndPoints from '../environment/ecom-environment.default';
 import {
   GetPhoneInfoResponse,
+  GetPlansResponse,
   NewUserResponse,
   UserAccessResponse,
 } from 'src/common-interfaces/ecom-api.types';
@@ -36,6 +37,17 @@ export class EcomApiService {
     return this.http.get<GetPhoneInfoResponse>(
       this.backendPhonesUrl + ApiEndPoints.apiEndPoints.getPhoneInfo,
       {}
+    );
+  }
+
+  getPlans(selectedSim: string) {
+    return this.http.get<GetPlansResponse>(
+      this.backendPhonesUrl + ApiEndPoints.apiEndPoints.getPlans,
+      {
+        params: {
+          sim: selectedSim,
+        },
+      }
     );
   }
 }

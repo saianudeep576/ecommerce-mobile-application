@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { SelectedPhoneInfo } from 'src/common-interfaces/ecom-api.types';
+import { EcomApiService } from 'src/services/ecom-api.service';
 import { EcomStateService } from 'src/services/ecom-state.service';
 import { TentiativeService } from 'src/services/tentiative.service';
 import { selectedPhoneInformationAction } from 'src/store/app.action';
@@ -20,7 +21,8 @@ export class BuildYourPlanComponent {
     }>,
     route: ActivatedRoute,
     public ecomStateService: EcomStateService,
-    public tentiativeService: TentiativeService
+    public tentiativeService: TentiativeService,
+    public ecomApiService: EcomApiService
   ) {
     route.queryParams.subscribe((val) => {
       this.params = {
@@ -40,6 +42,11 @@ export class BuildYourPlanComponent {
     );
     //tentiative change
     this.tentiativeService.tempSelectedDeviceInfo$.next(this.params);
-    console.log(this.tentiativeService.tempSelectedDeviceInfo$.value);
+  }
+
+  getPlans(selectedSim: string) {
+    this.ecomApiService.getPlans(selectedSim).subscribe((val) => {
+      console.log('plans', val);
+    });
   }
 }

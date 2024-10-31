@@ -37,3 +37,10 @@ export interface SelectedPhoneInfo {
   title: string;
   price: string;
 }
+
+export interface GetPlansResponse {
+  amount: string;
+  messages: string;
+  data: string;
+  calls: string;
+}

@@ -1,8 +1,8 @@
 const express = require("express");
 const mysql = require("mysql");
-const cors = require('cors');
+const cors = require("cors");
 const app = express();
-app.use(cors())
+app.use(cors());
 
 //establishing database connection
 const database = mysql.createConnection({
@@ -24,6 +24,18 @@ database.connect((error) => {
 //getting the records
 app.get("/getPhoneInfo", (req, res) => {
   const command = "SELECT * FROM PHONES"; //command for fetching the records, here we need to mention the table name
+  database.query(command, (error, result) => {
+    if (error) {
+      res.json(error);
+    } else {
+      res.json(result);
+    }
+  });
+});
+
+//recharge plans
+app.get("/getPlans", (req, res) => {
+  const command = "SELECT * FROM PLANS"; //command for fetching the records, here we need to mention the table name
   database.query(command, (error, result) => {
     if (error) {
       res.json(error);
